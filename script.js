@@ -5,7 +5,7 @@ alphalist2.sort_list = function($l) {
 		var $t = jQuery(this);
 		a.push([$t.text(), $t]);
 	});
-	a.sort(function(a, b) { return a[0] > b[0] });
+	a.sort(function(a, b) { return (a[0]).localeCompare(b[0]) });
 	for (k in a) {
 		var $li = a[k][1];
 		$l.append($li);
