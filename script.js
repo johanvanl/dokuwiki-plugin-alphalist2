@@ -1,7 +1,7 @@
 var alphalist2 = {};
 alphalist2.sort_list = function($l) {
 	var a = [];
-	$l.find("li").each(function() {
+	$l.find("> li").each(function() {
 		var $t = jQuery(this);
 		a.push([$t.text(), $t]);
 	});
@@ -13,8 +13,7 @@ alphalist2.sort_list = function($l) {
 };
 
 jQuery(document).ready(function() {
-    jQuery(".alphalist2").each(function() {
-        var $l = jQuery(this).find("ol,ul");
-        alphalist2.sort_list($l);
+    jQuery(".alphalist2").find("ol,ul").each(function() {
+        alphalist2.sort_list(jQuery(this));
     });
 });
