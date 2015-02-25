@@ -13,22 +13,7 @@ class syntax_plugin_alphalist2 extends DokuWiki_Syntax_Plugin {
     public function getSort(){ return 158; }
     public function connectTo($mode) { $this->Lexer->addEntryPattern('<alphalist>(?=.*?</alphalist>)',$mode,'plugin_alphalist2'); }
     public function postConnect() { $this->Lexer->addExitPattern('</alphalist>','plugin_alphalist2'); }
-
-
-    /**
-     * Handle the match
-     */
-    public function handle($match, $state, $pos, Doku_Handler $handler){
-        switch ($state) {
-            case DOKU_LEXER_ENTER :
-                return $state;
-            case DOKU_LEXER_UNMATCHED :
-                return $state;
-            case DOKU_LEXER_EXIT :
-                return $state;
-        }
-        return array();
-    }
+    public function handle($match, $state, $pos, Doku_Handler $handler) { return $state; }
 
     /**
      * Create output
